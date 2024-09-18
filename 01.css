@@ -1,0 +1,501 @@
+* {
+    margin: 0;
+    /* Elimina el margen por defecto de todos los elementos */
+    padding: 0;
+    /* Elimina el relleno por defecto de todos los elementos */
+    box-sizing: border-box;
+    /* Asegura que el padding y el borde se incluyan en el tamaño total del elemento */
+}
+
+body {
+    background-image: url(RECURSOS/luna_azul.jpg);
+    /* Aplica una imagen de fondo al cuerpo de la página */
+    background-repeat: no-repeat;
+    /* Evita que la imagen de fondo se repita */
+    background-attachment: fixed;
+    /* La imagen de fondo permanecerá fija mientras se desplaza */
+    background-position: center;
+    /* Centra la imagen de fondo */
+    display: flex;
+    /* Usa flexbox para el diseño de la página */
+    flex-direction: column;
+    /* Coloca los elementos hijos del body en una columna */
+    justify-content: center;
+    /* Centra los elementos en el eje vertical */
+    align-items: center;
+    /* Centra los elementos en el eje horizontal */
+    min-height: 100vh;
+    /* Asegura que el cuerpo tenga una altura mínima del 100% de la ventana */
+    margin: 0;
+    /* Elimina el margen del body */
+    font-family: Arial, sans-serif;
+    /* Aplica la fuente Arial, con fallback a sans-serif */
+    color: #fff;
+    /* Establece el color del texto en blanco */
+    /* cursor:none; / / Deshabilita el cursor, pero está comentado */
+}
+
+.header {
+    text-align: center;
+    /* Centra el texto dentro del header */
+    padding: 20px;
+    /* Añade un relleno de 20px alrededor del contenido */
+    background: rgba(0, 0, 0, 0.8);
+    /* Aplica un fondo negro semi-transparente al header */
+    width: 100%;
+    /* El header ocupará el 100% del ancho de la página */
+}
+
+.header h1 {
+    font-size: 2.5em;
+    /* Establece el tamaño de la fuente a 2.5 veces el tamaño del texto estándar */
+    color: #FFD700;
+    /* El color del texto del h1 es dorado */
+}
+
+.navbar ul {
+    list-style: none;
+    /* Elimina los estilos de lista por defecto (como los puntos) */
+    padding: 0;
+    /* Elimina el relleno interno de la lista */
+}
+
+.navbar ul li {
+    display: inline;
+    /* Coloca los elementos de la lista en línea */
+    margin: 0 15px;
+    /* Añade un margen horizontal de 15px entre los elementos de la lista */
+}
+
+.navbar ul li a {
+    color: #FFD700;
+    /* Los enlaces tienen un color dorado */
+    text-decoration: none;
+    /* Elimina el subrayado por defecto de los enlaces */
+    font-size: 1.2em;
+    /* Aumenta ligeramente el tamaño de la fuente de los enlaces */
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
+    /* Al pasar el cursor sobre el enlace, se subraya */
+}
+
+.photo-section {
+    padding: 30px;
+    /* Añade un relleno interno de 30px */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Aplica un fondo negro semi-transparente */
+    width: 100%;
+    /* Ocupa el 100% del ancho de la página */
+}
+
+.conjunto1 {
+    width: 100%;
+    /* Ocupa el 100% del ancho disponible */
+    max-width: 1200px;
+    /* El ancho máximo es de 1200px */
+    margin: auto;
+    /* Centra horizontalmente el elemento */
+}
+
+.grid-container {
+    display: grid;
+    /* Utiliza un diseño de cuadrícula (grid) */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Crea columnas flexibles que se ajustan automáticamente */
+    gap: 20px;
+    /* Establece un espacio de 20px entre las celdas de la cuadrícula */
+}
+
+.card-container {
+    position: relative;
+    /* Posiciona los elementos de manera relativa a este contenedor */
+    width: 100%;
+    /* Ocupa el 100% del ancho disponible */
+    height: 300px;
+    /* Establece una altura fija de 300px */
+    border-radius: 10px;
+    /* Redondea las esquinas del contenedor */
+    overflow: hidden;
+    /* Oculta cualquier contenido que se salga de los límites */
+    transition: transform 0.4s ease-in-out;
+    /* Transición suave cuando el contenedor se escala */
+}
+
+.card {
+    position: relative;
+    /* Elementos hijos posicionados de manera relativa dentro de la tarjeta */
+    width: 100%;
+    /* Ocupa el 100% del ancho disponible */
+    height: 100%;
+    /* Ocupa el 100% de la altura disponible */
+}
+
+.img {
+    position: absolute;
+    /* Posiciona la imagen de manera absoluta dentro de su contenedor */
+    width: 100%;
+    /* La imagen ocupa todo el ancho del contenedor */
+    height: 100%;
+    /* La imagen ocupa toda la altura del contenedor */
+    top: 0;
+    /* Coloca la imagen en la parte superior del contenedor */
+    left: 0;
+    /* Coloca la imagen en el borde izquierdo del contenedor */
+    object-fit: cover;
+    /* Asegura que la imagen cubra todo el contenedor sin distorsión */
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    /* Transiciones suaves de opacidad y transformación */
+}
+
+.img-back {
+    opacity: 0;
+    /* La imagen de fondo es invisible inicialmente */
+}
+
+.card:hover .img-front {
+    opacity: 0;
+    /* La imagen frontal se desvanece al pasar el ratón */
+    transform: scale(1.1);
+    /* La imagen se agranda ligeramente (zoom) al desvanecerse */
+}
+
+.card:hover .img-back {
+    opacity: 1;
+    /* La imagen de fondo se vuelve visible al pasar el ratón */
+    transform: scale(1.1);
+    /* La imagen de fondo también se agranda ligeramente */
+}
+
+.card-container:hover {
+    transform: scale(1.05);
+    /* La tarjeta completa se agranda ligeramente al pasar el ratón */
+}
+
+.song {
+    position: absolute;
+    /* El texto se posiciona de manera absoluta dentro de la tarjeta */
+    color: white;
+    /* El color del texto es blanco */
+    width: 100%;
+    /* El texto ocupa todo el ancho de la tarjeta */
+    bottom: -100px;
+    /* Inicialmente, el texto está oculto fuera de la vista, debajo de la tarjeta */
+    left: 50%;
+    /* Se posiciona a la mitad horizontal de la tarjeta */
+    transform: translateX(-50%);
+    /* Ajusta el texto para que esté perfectamente centrado */
+    font-family: 'NewJeans', sans-serif;
+    /* Aplica una fuente personalizada */
+    font-size: 20px;
+    /* Tamaño de la fuente de 20px */
+    text-align: center;
+    /* Centra el texto */
+    letter-spacing: 2px;
+    /* Aumenta el espaciado entre letras */
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+    /* Añade sombra al texto para mejorar su visibilidad */
+    transition: bottom 0.3s ease-in-out;
+    /* Transición suave del texto cuando cambia su posición */
+}
+
+.card-container:hover .song {
+    bottom: 20px;
+    /* Al pasar el ratón, el texto sube y se vuelve visible */
+}
+
+.info-section {
+    padding: 30px 50px;
+    /* Añade un relleno interno (30px en vertical, 50px en horizontal) */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Fondo negro semi-transparente */
+    margin-top: 20px;
+    /* Añade un margen superior de 20px */
+    width: 100%;
+    /* Ocupa todo el ancho disponible */
+}
+
+.info-section h2 {
+    font-size: 2em;
+    /* Tamaño de fuente para el título */
+    margin-bottom: 10px;
+    /* Añade un margen inferior de 10px */
+    color: #FFD700;
+    /* Color dorado para el título */
+}
+
+.info-section p {
+    margin-bottom: 20px;
+    /* Añade un margen inferior de 20px */
+    text-align: justify;
+    /* Justifica el texto para alinearlo a ambos lados */
+}
+
+.info-img {
+    width: 20%;
+    /* La imagen ocupa el 20% del ancho del contenedor */
+    border-radius: 10px;
+    /* Redondea las esquinas de la imagen */
+    margin: 20px 0;
+    /* Añade márgenes verticales de 20px */
+}
+
+.contact-section {
+    padding: 30px 50px;
+    /* Añade un relleno interno de 30px vertical y 50px horizontal */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Fondo negro semi-transparente */
+    margin-top: 20px;
+    /* Añade un margen superior de 20px */
+    width: 100%;
+    /* La sección ocupa todo el ancho disponible */
+}
+
+.contact-section h2 {
+    font-size: 2em;
+    /* Tamaño de fuente del título */
+    margin-bottom: 10px;
+    /* Añade un margen inferior de 10px */
+    color: #FFD700;
+    /* Color dorado para el título */
+}
+
+.contact-form {
+    display: flex;
+    /* Aplica un diseño flexbox */
+    flex-direction: column;
+    /* Los elementos se disponen en una columna */
+}
+
+.contact-form label {
+    margin-bottom: 5px;
+    /* Añade un margen inferior de 5px a las etiquetas */
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    /* Añade un relleno interno de 10px */
+    margin-bottom: 15px;
+    /* Añade un margen inferior de 15px */
+    border: 1px solid #ddd;
+    /* Aplica un borde gris claro de 1px */
+    border-radius: 5px;
+    /* Redondea los bordes de los inputs y textarea */
+    background: #fff;
+    /* Fondo blanco para los campos de formulario */
+    color: #333;
+    /* Texto gris oscuro */
+}
+
+.contact-form button {
+    padding: 10px;
+    /* Añade un relleno interno de 10px */
+    border: none;
+    /* Elimina el borde del botón */
+    border-radius: 5px;
+    /* Redondea los bordes del botón */
+    background-color: #FFD700;
+    /* Color de fondo dorado */
+    color: #333;
+    /* Color del texto gris oscuro */
+    font-size: 1em;
+    /* Tamaño de la fuente estándar */
+    cursor: pointer;
+    /* Cambia el cursor a una mano al pasar sobre el botón */
+}
+
+.contact-form button:hover {
+    background-color: #FFC107;
+    /* Al pasar el ratón sobre el botón, cambia a un tono dorado más oscuro */
+}
+
+.footer {
+    text-align: center;
+    /* Centra el contenido del pie de página */
+    padding: 20px;
+    /* Añade un relleno interno de 20px */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Fondo negro semi-transparente */
+    margin-top: 20px;
+    /* Añade un margen superior de 20px */
+    width: 100%;
+    /* El pie de página ocupa todo el ancho disponible */
+}
+
+.footer p {
+    color: #ffffff;
+    /* Color del texto blanco */
+}
+
+.response-message {
+    text-align: center;
+    /* Centra el contenido del mensaje de respuesta */
+    padding: 20px;
+    /* Añade un relleno interno de 20px */
+    margin: 20px;
+    /* Añade un margen de 20px alrededor */
+    background-color: #f8d7da;
+    /* Fondo rojo claro */
+    color: #721c24;
+    /* Texto en rojo oscuro */
+}
+
+/* Estilo del formulario */
+.contact-section {
+    max-width: 600px;
+    /* Ancho máximo de la sección de contacto de 600px */
+    margin: 50px auto;
+    /* Añade un margen superior de 50px y centra horizontalmente */
+    padding: 20px;
+    /* Añade un relleno interno de 20px */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Fondo blanco semi-transparente */
+    border-radius: 10px;
+    /* Redondea las esquinas de la sección */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Añade una sombra sutil alrededor */
+}
+
+.contact-section h2 {
+    text-align: center;
+    /* Centra el título de la sección */
+    color: #2c83f3;
+    /* Color azul */
+    font-size: 28px;
+    /* Tamaño de la fuente del título */
+    margin-bottom: 20px;
+    /* Añade un margen inferior de 20px */
+}
+
+.contact-section label {
+    font-size: 18px;
+    /* Tamaño de la fuente de las etiquetas */
+    color: #333;
+    /* Color de las etiquetas gris oscuro */
+    display: block;
+    /* Cada etiqueta ocupa toda la línea */
+    margin-bottom: 8px;
+    /* Añade un margen inferior de 8px */
+}
+
+.contact-section input[type="text"],
+.contact-section input[type="email"],
+.contact-section textarea {
+    width: 100%;
+    /* Los campos de texto y área ocupan el 100% del ancho disponible */
+    padding: 10px;
+    /* Añade un relleno interno de 10px */
+    margin-bottom: 15px;
+    /* Añade un margen inferior de 15px */
+    border: 1px solid #ccc;
+    /* Borde gris claro */
+    border-radius: 5px;
+    /* Redondea los bordes */
+    font-size: 16px;
+    /* Tamaño de fuente de 16px */
+}
+
+.contact-section button[type="submit"] {
+    width: 100%;
+    /* El botón de enviar ocupa todo el ancho del contenedor */
+    padding: 10px;
+    /* Añade un relleno interno de 10px */
+    background-color: #2c83f3;
+    /* Fondo azul */
+    color: white;
+    /* Texto blanco */
+    border: none;
+    /* Elimina el borde */
+    border-radius: 5px;
+    /* Redondea los bordes */
+    font-size: 18px;
+    /* Tamaño de la fuente del botón */
+    cursor: pointer;
+    /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease;
+    /* Transición suave del color de fondo */
+}
+
+.contact-section button[type="submit"]:hover {
+    background-color: #1a5bbf;
+    /* Cambia el color del fondo al pasar el ratón por encima */
+}
+
+/* Estilo del mensaje de respuesta */
+.response-message {
+    margin-top: 20px;
+    /* Añade un margen superior de 20px */
+    padding: 15px;
+    /* Añade un relleno interno de 15px */
+    background-color: rgba(44, 131, 243, 0.1);
+    /* Fondo azul claro semi-transparente */
+    border: 2px solid #2c83f3;
+    /* Borde azul */
+    border-radius: 5px;
+    /* Redondea los bordes */
+    color: #2c83f3;
+    /* Texto en azul */
+    text-align: center;
+    /* Centra el texto */
+}
+
+.response-message h1 {
+    font-size: 24px;
+    /* Tamaño de la fuente del título */
+    margin-bottom: 10px;
+    /* Añade un margen inferior de 10px */
+}
+
+.response-message p {
+    font-size: 18px;
+    /* Tamaño de la fuente del párrafo */
+}
+
+.response-message a {
+    display: inline-block;
+    /* El enlace se comporta como un elemento en línea bloque */
+    margin-top: 10px;
+    /* Añade un margen superior de 10px */
+    color: #2c83f3;
+    /* Color azul */
+    text-decoration: none;
+    /* Elimina el subrayado del enlace */
+    font-weight: bold;
+    /* Aplica negrita al enlace */
+}
+
+.response-message a:hover {
+    text-decoration: underline;
+    /* Añade subrayado al pasar el ratón por encima */
+}
+
+.testimonial-grid {
+    display: grid;
+    /* Aplica un diseño de cuadrícula */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Crea columnas de al menos 250px de ancho y se ajustan automáticamente */
+    gap: 20px;
+    /* Añade un espacio de 20px entre los elementos */
+}
+
+.testimonial {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Fondo blanco semi-transparente */
+    padding: 20px;
+    /* Añade un relleno interno de 20px */
+    border-radius: 10px;
+    /* Redondea los bordes */
+    color: #fff;
+    /* Texto blanco */
+    text-align: center;
+    /* Centra el texto */
+}
+
+.testimonial p:first-of-type {
+    font-style: italic;
+    /* Aplica cursiva al primer párrafo */
+    margin-bottom: 10px;
+    /* Añade un margen inferior de 10px */
+}
